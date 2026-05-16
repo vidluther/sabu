@@ -1,6 +1,6 @@
 ---
-name: grill-with-docs
-description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
+name: rubber-duck-with-docs
+description: Rubber-ducking session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan, or an issue against their project's language and documented decisions.
 ---
 
 <what-to-do>

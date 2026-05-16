@@ -13,7 +13,7 @@ The skills currently cover, roughly:
 - **Project setup** — `marshal` (lays the rails: CLAUDE.md/AGENTS.md coherence, issue tracker, triage labels, domain doc layout, code style, version control conventions).
 - **Issue workflow** — `triage` (state machine for incoming issues), `to-issues` (break a plan into tickets), `to-prd` (turn a conversation into a PRD).
 - **Implementation discipline** — `tdd` (red-green-refactor), `diagnose` (disciplined debugging loop), `improve-codebase-architecture` (find deepening opportunities).
-- **Design / collaboration** — `grill-me` (interview the user about a plan), `grill-with-docs` (challenge a plan against project domain language), `zoom-out` (step back from current work).
+- **Design / collaboration** — `rubber-duck` (interview the user about a plan), `rubber-duck-with-docs` (challenge a plan against project domain language), `zoom-out` (step back from current work).
 - **Stack-specific helpers** — `gitbutler`, `shadcn`, `shadcn-ui`, `supabase-postgres-best-practices`, `migrate-oxlint`.
 
 ## Getting started
