@@ -29,3 +29,8 @@ cd ~/work/personal/sabu
 ## Provenance
 
 Most of the skills are forks or evolutions of public sets — Matt Pocock's skill collection and others — adapted to my workflow. Some are bespoke. The `marshal` skill (and the broader state/provenance label model in `triage`) were rewritten from scratch in May 2026 as part of a redesign aimed at making the harness work for any new or existing repo.
+
+## Security 
+
+I highly recommend you view the skills here, and elsewhere, before you decide to start using them yourself. Take a look at [Skillspector](https://github.com/nvidia/skillspector) and see ifthe skills you have do anything dangerous, and decide if you want to risk it or not. 
+
