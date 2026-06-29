@@ -32,10 +32,11 @@ Skills cross-reference each other by name (e.g. `marshal` mentions `to-issues`, 
 
 ## Distribution model (what setup.sh does)
 
-Two destinations, two patterns:
+Three destinations, two patterns:
 
 1. **`~/.agents/skills`** — a single parent symlink pointing at this repo's `skills/`. Tools that follow the AGENTS.md convention pick up everything under `skills/` automatically. If `~/.agents` is itself a symlink (e.g. managed by stow), setup bails so the user can decide.
 2. **`~/.claude/skills/<name>`** — one symlink per skill. Claude Code discovers user-level skills by enumerating this directory, so each skill needs its own entry.
+3. **`~/.gemini/antigravity/skills/<name>`** — one symlink per skill, same shape as Claude Code. Gemini Antigravity enumerates this directory.
 
 `setup.sh` reports new symlinks, replaced symlinks (target moved), skipped real directories (won't clobber), and dangling symlinks (point at non-existent paths — usually leftovers from a renamed/removed skill; remove manually).
 
