@@ -110,7 +110,7 @@ Confirm the layout:
 - **Single-context** — one `CONTEXT.md` + `docs/adr/` at the repo root. Most repos are this.
 - **Multi-context** — `CONTEXT-MAP.md` at the root pointing to per-context `CONTEXT.md` files (typically a monorepo).
 
-Marshal does not fill in `CONTEXT.md` content — that's `rubber-duck-with-docs`'s job, and it happens lazily as terms get resolved during real work. Marshal only records where these files live so the consumer skills know where to look.
+Marshal does not fill in `CONTEXT.md` content — that's `rubber-duck`'s job, and it happens lazily as terms get resolved during real work. Marshal only records where these files live so the consumer skills know where to look.
 
 Offer to create empty `docs/adr/` and `.out-of-scope/` directories if they don't exist (with a `.gitkeep` so they survive git).
 
@@ -231,4 +231,4 @@ For "other" issue trackers, write `docs/agents/issue-tracker.md` from scratch us
 Tell the user:
 - Which sections were recorded and where.
 - That they can edit `docs/agents/*.md` and `CLAUDE.md` directly later — re-running marshal is only necessary if they want to change a section's underlying decisions.
-- Pointers to follow-up skills if relevant (e.g. `/update-config` for hooks, `/migrate-oxlint` if a linter conflict was flagged, `/rubber-duck-with-docs` to start filling `CONTEXT.md`).
+- Pointers to follow-up skills if relevant (e.g. `/update-config` for hooks, `/migrate-oxlint` if a linter conflict was flagged, `/rubber-duck` to start filling `CONTEXT.md`).
