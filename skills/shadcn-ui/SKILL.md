@@ -1,6 +1,10 @@
 ---
 name: shadcn-ui
 description: Expert guidance for integrating and building applications with shadcn/ui components, including component discovery, installation, customization, and best practices.
+source: https://github.com/google-labs-code/stitch-skills
+source_path: plugins/stitch-build/skills/shadcn-ui
+upstream_ref: 38f45dd1c0d2c38031686cf319412f4b22a00686
+last_reviewed: 2026-06-29
 allowed-tools:
   - "shadcn*:*"
   - "mcp_shadcn*"

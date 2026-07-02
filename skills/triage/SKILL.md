@@ -70,7 +70,7 @@ Show counts and a one-line summary per issue. Surface any non-canonical labels i
 
 3. **Reproduce (bugs only).** Before any rubberducking, attempt reproduction: read the reporter's steps, trace the relevant code, run tests or commands. Report what happened — successful repro with code path, failed repro, or insufficient detail (a strong `needs-info` signal). A confirmed repro makes a much stronger agent brief.
 
-4. **Grill (if needed).** If the issue needs fleshing out, run a `/rubber-duck` session.
+4. **Rubber-duck (if needed).** If the issue needs fleshing out, run a `/rubber-duck` session.
 
 5. **Apply the outcome:**
    - `ready-for-agent` — post an agent brief comment ([AGENT-BRIEF.md](AGENT-BRIEF.md)).

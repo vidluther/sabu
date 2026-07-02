@@ -61,7 +61,7 @@ The `## Agent skills` block goes in the canonical file.
 
 ### Section 2 — Where work happens
 
-> **Explainer:** The "issue tracker" is where issues live for this repo. Skills like `to-issues`, `triage`, `to-prd`, and `qa` read from and write to it — they need to know whether to call `gh issue create` or follow some other workflow you describe. Pick the place you actually track work for this repo.
+> **Explainer:** The "issue tracker" is where issues live for this repo. Skills like `to-issues`, `triage`, and `to-prd` read from and write to it — they need to know whether to call `gh issue create` or follow some other workflow you describe. Pick the place you actually track work for this repo.
 
 Default posture: these skills were designed for GitHub. If a `git remote` points at GitHub, propose that. Otherwise (or if the user prefers), offer:
 
