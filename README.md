@@ -14,7 +14,7 @@ The skills currently cover, roughly:
 - **Issue workflow** — `triage` (state machine for incoming issues), `to-issues` (break a plan into tickets), `to-prd` (turn a conversation into a PRD).
 - **Implementation discipline** — `tdd` (red-green-refactor), `diagnose` (disciplined debugging loop), `improve-codebase-architecture` (find deepening opportunities).
 - **Design / collaboration** — `rubber-duck` (interview the user about a plan, challenging it against the project's domain language and capturing decisions when the project documents them), `zoom-out` (step back from current work).
-- **Stack-specific helpers** — `gitbutler`, `shadcn`, `shadcn-ui`, `supabase-postgres-best-practices`, `migrate-oxlint`.
+- **Stack-specific helpers** — `gitbutler`, `shadcn-ui`, `migrate-oxlint`.
 
 ## Getting started
 
@@ -30,7 +30,11 @@ cd ~/work/personal/sabu
 
 Most of the skills are forks or evolutions of public sets — Matt Pocock's skill collection and others — adapted to my workflow. Some are bespoke. The `marshal` skill (and the broader state/provenance label model in `triage`) were rewritten from scratch in May 2026 as part of a redesign aimed at making the harness work for any new or existing repo.
 
+Vendored third-party skills record where they came from in their `SKILL.md` frontmatter: `source:` (upstream repo), `source_path:`, `upstream_ref:` (the commit last reconciled against), and `last_reviewed:`. The presence of `source:` is what marks a skill as third-party — `rg '^source:' skills/*/SKILL.md` lists them. These are forks, not mirrors: I adapt them, so upstream is somewhere I shop for improvements on need, not a feed I sync from. To review what changed upstream before pulling anything in, run `./update-thirdparty-skills.sh <name>` — it's read-only (shows the upstream diff and a Skillspector scan; never edits `skills/`).
+
 ## Security 
 
-I highly recommend you view the skills here, and elsewhere, before you decide to start using them yourself. Take a look at [Skillspector](https://github.com/nvidia/skillspector) and see ifthe skills you have do anything dangerous, and decide if you want to risk it or not. 
+I highly recommend you view the skills here, and elsewhere, before you decide to start using them yourself. Take a look at [Skillspector](https://github.com/nvidia/skillspector) and see if the skills you have do anything dangerous, and decide if you want to risk it or not.
+
+This matters more than it looks. A skill is not documentation — it's instructions an agent *executes* while holding real tools (shell, file edits, MCP). A third-party skill is therefore code you run. That's why vendored skills here are **never auto-updated**: auto-pulling upstream would be an unattended supply-chain channel (upstream changes the prompt, your next agent run obeys it). Updates are deliberate and reviewed — `./update-thirdparty-skills.sh <name>` shows the upstream diff and runs `skillspector scan --no-llm`, you read it for injection-style changes a scanner can't catch, then you hand-merge. Don't automate that gate away.
 
