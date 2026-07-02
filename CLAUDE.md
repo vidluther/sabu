@@ -23,6 +23,12 @@ Every skill lives at `skills/<name>/` and must contain a `SKILL.md` file. SKILL.
 name: <kebab-case-name> # must match the directory name
 description: <one-line summary> # used by agents to decide when to load it
 disable-model-invocation: true # optional; prevents auto-trigger
+
+# Provenance — present only on vendored (third-party) skills; see "Third-party skills".
+source: <clone-able upstream repo URL>            # presence of `source:` marks a skill as vendored
+source_path: <path to the skill within that repo> # optional; omit if repo root
+upstream_ref: <commit/tag last reconciled against>
+last_reviewed: <YYYY-MM-DD>
 ---
 ```
 
@@ -45,3 +51,21 @@ Three destinations, two patterns:
 1. Create `skills/<name>/SKILL.md` with the frontmatter above.
 2. Add any supporting files in the same directory.
 3. Run `./setup.sh` — it will print `linked   ~/.claude/skills/<name>`.
+
+## Third-party (vendored) skills
+
+Some skills are forks of public skill sets (e.g. `gitbutler`, `shadcn-ui`) vendored into `skills/` and then adapted. They are **ours now** — we never auto-update them.
+
+**Why no auto-update:** a skill is instructions an agent *executes* while holding real tools (shell, file edits, MCP), so a vendored skill is third-party *code you run*. Auto-pulling upstream would be an unattended supply-chain channel — upstream changes the prompt, the next agent run obeys it. So upstream is a place we shop on need, not a feed we sync from. (Full rationale in the README "Security" section. Do not "helpfully" automate this away.)
+
+A vendored skill records its origin in the flat top-level frontmatter fields above. The presence of `source:` is what marks a skill as vendored; `rg '^source:' skills/*/SKILL.md` audits them. Bespoke skills have no `source:`.
+
+### Updating a vendored skill
+
+On need only — when the skill misbehaves, or you want a capability upstream gained. Not on a schedule (staleness here is a correctness annoyance; the update itself is the risky moment).
+
+1. `./update-thirdparty-skills.sh <name>` — read-only: clones upstream, shows the `upstream_ref..HEAD` diff and how far the fork has diverged, and runs `skillspector scan --no-llm` on the upstream candidate. It never writes into `skills/`.
+2. Read the diff yourself for injection-style changes a scanner won't flag (new shell, exfil / new URLs, "ignore previous instructions" / permission-broadening, obfuscation, trigger or `description:` changes).
+3. Hand-merge the bits you want into `skills/<name>/`.
+4. Bump `upstream_ref:` (to the HEAD sha the script printed) and `last_reviewed:`.
+5. Run `./setup.sh`.
